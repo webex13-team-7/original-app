@@ -1,6 +1,6 @@
 // 必要な関数を import
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app"
+import { getFirestore } from "firebase/firestore"
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -11,9 +11,9 @@ const firebaseConfig = {
   messagingSenderId: "925100350280",
   appId: "1:925100350280:web:076637c5e0bcc479cf317d",
   measurementId: "G-0GG6QB8FTQ",
-};
+}
 
 // Firebaseアプリオブジェクトを初期化
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig)
 // Firestoreを読み込み、db(databaseの略)として export
-export const db = getFirestore(app);
+export const db = getFirestore(app)
