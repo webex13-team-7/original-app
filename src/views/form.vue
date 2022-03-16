@@ -5,7 +5,7 @@
     <input type="radio" name="d1" value= "true" class="radio" id="getu_maru" />
     <label for="getu_maru" class="maru">〇</label>
     <input type="radio" name="d1" value="false" class="radio" id="getu_batu" />
-    <label for="batu" class="batu">✖</label>
+    <label for="getu_batu" class="batu">✖</label>
   </p>
 
   <p>
