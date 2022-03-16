@@ -1,30 +1,42 @@
 <template>
   <table>
     <tr>
-      <th>日付</th>
-      <th>〇</th>
-      <th>✖</th>
+      <th>曜日</th>
       <th>name</th>
       <th>name1</th>
     </tr>
     <tr>
-      <th>〇月✖日</th>
-      <td>n人</td>
-      <td>n人</td>
+      <th>月</th>
       <td>〇</td>
       <td>✖</td>
     </tr>
     <tr>
-      <th>〇月✖日</th>
-      <td>n人</td>
-      <td>n人</td>
+      <th>火</th>
       <td>〇</td>
       <td>✖</td>
     </tr>
     <tr>
-      <th>〇月✖日</th>
-      <td>n人</td>
-      <td>n人</td>
+      <th>水</th>
+      <td>〇</td>
+      <td>✖</td>
+    </tr>
+    <tr>
+      <th>木</th>
+      <td>〇</td>
+      <td>✖</td>
+    </tr>
+    <tr>
+      <th>金</th>
+      <td>〇</td>
+      <td>✖</td>
+    </tr>
+    <tr>
+      <th>土</th>
+      <td>〇</td>
+      <td>✖</td>
+    </tr>
+    <tr>
+      <th>日</th>
       <td>〇</td>
       <td>✖</td>
     </tr>
