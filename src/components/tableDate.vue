@@ -1,0 +1,28 @@
+<template>
+<table>
+    <tr>
+      <th>曜日</th>
+    </tr>
+    <tr>
+      <th>月</th>
+    </tr>
+    <tr>
+      <th>火</th>
+    </tr>
+    <tr>
+      <th>水</th>
+    </tr>
+    <tr>
+      <th>木</th>
+    </tr>
+    <tr>
+      <th>金</th>
+    </tr>
+    <tr>
+      <th>土</th>      
+    </tr>
+    <tr>
+      <th>日</th>
+    </tr>
+  </table>
+</template>
