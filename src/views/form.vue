@@ -1,6 +1,6 @@
 <template>
   <p>
-    月<br />
+    <span class="weekn">月</span><br />
     <input
       type="radio"
       name="d1"
@@ -24,7 +24,7 @@
   </p>
 
   <p>
-    火<br />
+    <span class="weekn">火</span><br />
     <input
       type="radio"
       name="d2"
@@ -48,7 +48,7 @@
   </p>
 
   <p>
-    水<br />
+    <span class="weekn">水</span><br />
     <input
       type="radio"
       name="d3"
@@ -72,7 +72,7 @@
   </p>
 
   <p>
-    木<br />
+    <span class="weekn">木</span><br />
     <input
       type="radio"
       name="d4"
@@ -96,7 +96,7 @@
   </p>
 
   <p>
-    金<br />
+    <span class="weekn">金</span><br />
     <input
       type="radio"
       name="d5"
@@ -120,7 +120,7 @@
   </p>
 
   <p>
-    土<br />
+    <span class="weekn">土</span><br />
     <input
       type="radio"
       name="d6"
@@ -144,7 +144,7 @@
   </p>
 
   <p>
-    日<br />
+    <span class="weekn">日</span><br />
     <input
       type="radio"
       name="d7"
@@ -168,9 +168,9 @@
   </p>
 
   <!-- {{ schedules }}
-  <br />
+  
   {{ radio1 }} -->
-  <br />
+  
   <!-- {{ schedules2 }} -->
 
   <p><input type="submit" value="登録する" v-on:click="postTweet" /></p>
@@ -287,14 +287,23 @@ export default {
 </script>
 
 <style>
-/* .radio{
-    display: none;
-    
-} */
+input[type="radio"] {
+  display: none;
+  margin-bottom: 20px;
+}
 .maru {
   font-size: 30px;
+  margin-right: 10px;
 }
 .batu {
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+input[type="radio"]:checked + label {
+  color: red;
+}
+.weekn {
   font-size: 30px;
 }
 </style>
