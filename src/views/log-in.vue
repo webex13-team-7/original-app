@@ -1,6 +1,6 @@
 <template>
   <h1>Log In</h1>
-  <div class="container">
+  <div class="log-in">
     <div class="email">
       <input type="text" placeholder="email" name="uname" required /><br />
     </div>
@@ -15,7 +15,7 @@
 </template>
 
 <style>
-.container {
+.log-in{
   text-align: center;
   background-color: #101010;
   height: 200px;
