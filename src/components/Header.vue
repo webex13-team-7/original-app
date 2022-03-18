@@ -1,11 +1,16 @@
 <template>
-<header>
-    <div class="title">アプリ名</div>
-    <div class="header-nav">
-        <router-link to="/form" class="toForm">Form</router-link> 
-        <router-link to="/result" class="toresult">Result</router-link>
+<nav class="navbar navbar-expand-xxlg navbar-light bg-light p-3">
+    <router-link to="/" class="navbar-brand mb-0 h1" >Apprication</router-link>
+    <div class="row">
+        <div class="col">
+            <router-link to="/form" class="toForm">Form</router-link> 
+        </div>
+        <div class="col">
+            <router-link to="/result" class="toResult">Result</router-link>
+        </div>
     </div>
-</header>
+    
+</nav>
 </template>
 <style>
 header{
