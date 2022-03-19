@@ -1,14 +1,19 @@
 <template>
   <form>
-    <div class="container">
-      <div class="row">
-        <div class="col"><p>月</p></div>
-        <div class="col"><p>火</p></div>
-        <div class="col"><p>水</p></div>
-        <div class="col"><p>木</p></div>
-        <div class="col"><p>金</p></div>
-        <div class="col"><p>土</p></div>
-        <div class="col"><p>日</p></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container mt-5 pb-5 bg-light shadow-lg">
+      <div class="row pt-4 pb-3 bg-success text-white"><h1>シフトを選択してください</h1></div>
+      <div class="row mt-2">
+        <div class="col mt-5"><p>月</p></div>
+        <div class="col mt-5"><p>火</p></div>
+        <div class="col mt-5"><p>水</p></div>
+        <div class="col mt-5"><p>木</p></div>
+        <div class="col mt-5"><p>金</p></div>
+        <div class="col mt-5"><p>土</p></div>
+        <div class="col mt-5"><p>日</p></div>
       </div>
       <div class="row">
         <div class="col form-group">

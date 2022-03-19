@@ -1,17 +1,17 @@
 <template>
-  <div class="container">
-    <div class="row bg-success p-2 text-dark bg-opacity-10">
+  <div class="container mt-5">
+    <div class="row bg-success p-3 text-dark bg-opacity-10">
       <div class="col-3">名前</div>
-      <div class="col-1"><p>月</p></div>
-      <div class="col-1"><p>火</p></div>
-      <div class="col-1"><p>水</p></div>
-      <div class="col-1"><p>木</p></div>
-      <div class="col-1"><p>金</p></div>
-      <div class="col-1"><p>土</p></div>
-      <div class="col-1"><p>日</p></div>
+      <div class="col-1">月</div>
+      <div class="col-1">火</div>
+      <div class="col-1">水</div>
+      <div class="col-1">木</div>
+      <div class="col-1">金</div>
+      <div class="col-1">土</div>
+      <div class="col-1">日</div>
     </div>
     <div
-      class="row"
+      class="row p-3"
       v-for="(schedule, index) in schedules2"
       v-bind:key="schedule.id"
       v-bind:class="
@@ -81,8 +81,18 @@
         </button>
       </div>
     </div>
+    <div class="row">
+      <div class="col-3">{{ schedules2.length }}人</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+      <div class="col-1">{{}}</div>
+    </div>
   </div>
-
+  {{ schedules2 }}
   <div class="modal" id="exampleModal" data-bs-backdrop="static">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -159,7 +169,6 @@
               </div>
             </div>
           </div>
-          {{ schedules }}
         </div>
         <div class="modal-footer">
           <div class="row">
@@ -238,13 +247,9 @@ export default {
         this.schedules = docSnapshot.get("schedule")
         this.modalId = schedule.id
       })
-
-      // for (let n = 0; n < 7; n++) {
-      //   data[n].key = this.schedules[n].key
-      // }
     },
   },
-  created() {
+  created: function () {
     getDocs(collection(db, "schedule")).then((snapshot) => {
       snapshot.forEach((doc) => {
         this.schedules2.push({

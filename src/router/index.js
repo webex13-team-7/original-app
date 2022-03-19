@@ -4,6 +4,7 @@ import signUp from "../views/sign-up.vue"
 import logIn from "../views/log-in.vue"
 import result from "../views/result.vue"
 import form from "../views/form.vue"
+import manage from "../views/manage.vue"
 const routes = [
   {
     path: "/",
@@ -19,6 +20,11 @@ const routes = [
     path: "/log-in",
     name: "log-in",
     component: logIn,
+  },
+  {
+    path: "/manage",
+    name: "manage",
+    component: manage,
   },
   {
     path: "/result",
