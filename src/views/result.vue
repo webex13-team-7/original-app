@@ -1,5 +1,10 @@
 <template>
-    <marubatu/>
+  <div class="container">
+    <div class="container mt-5">
+      <br>
+      <marubatu/>
+    </div>
+  </div>
 </template>
 
 <script>
