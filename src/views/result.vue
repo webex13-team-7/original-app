@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="container mt-5">
-      <br>
-      <marubatu/>
+      <br />
+      <marubatu />
     </div>
   </div>
 </template>
@@ -15,4 +15,3 @@ export default {
   },
 }
 </script>
-

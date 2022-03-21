@@ -12,7 +12,6 @@ import { getFirestore } from "firebase/firestore"
 //   signInWithEmailAndPassword,
 // } from "firebase/auth"
 
-
 // //ユーザー情報更新
 // import {updateProfile} from "firebase/auth"
 
@@ -60,8 +59,6 @@ import { getFirestore } from "firebase/firestore"
 //     const errorMessage = error.message
 //   })
 
-
-
 // //ユーザーのログイン状況が変化した時の処理
 // // ※userにcurrentUserを代入すると、ログイン中のユーザーが取得できる
 // onAuthStateChanged(auth, (user) => {
@@ -75,8 +72,6 @@ import { getFirestore } from "firebase/firestore"
 //     // ...
 //   }
 // })
-
-
 
 // //ログイン中のユーザーの情報を取得
 // const user = auth.currentUser;
@@ -119,7 +114,6 @@ import { getFirestore } from "firebase/firestore"
 //     // Email verification sent!
 //     // ...
 //   });
-
 
 // //パスワード更新
 //   const newPassword = getASecureRandomPassword();
@@ -173,7 +167,6 @@ import { getFirestore } from "firebase/firestore"
 //     const credential = GoogleAuthProvider.credentialFromError(error)
 //     // ...
 //   })
-
 
 // //プロバイダーのユーザー情報
 //   if (user !== null) {
