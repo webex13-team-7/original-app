@@ -184,14 +184,17 @@
         </div>
       </div>
     </div>
-    {{ getData }}
+    <div class="getdata">{{ getData }}入力値</div>
+    <div>{{ currentUserdata }}ログイン中のユーザー情報</div>
   </form>
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, getDocs } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "../firebase"
+
+import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 export default {
   data() {
@@ -205,14 +208,15 @@ export default {
         { saturday: "" },
         { sunday: "" },
       ],
-      monday: "",
-      tuesday: "",
-      wednesday: "",
-      thursday: "",
-      friday: "",
-      saturday: "",
-      sunday: "",
-      // seen: true,
+      monday: [],
+      tuesday: [],
+      wednesday: [],
+      thursday: [],
+      friday: [],
+      saturday: [],
+      sunday: [],
+      email: "",
+      currentUserdata: [],
     }
   },
   methods: {
@@ -220,8 +224,10 @@ export default {
       this.getAnswer()
       addDoc(collection(db, "schedule"), {
         schedule: this.schedules2,
+        name: this.currentUserdata[0].name,
+        status: this.currentUserdata[0].status,
       })
-      // this.seen = !this.seen
+      this.$router.push("result")
     },
     getAnswer() {
       this.schedules2[0].monday = this.monday
@@ -238,6 +244,20 @@ export default {
       this.getAnswer()
       return this.schedules2
     },
+  },
+  created: function () {
+    onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        this.email = user.email
+      }
+    }),
+      getDocs(collection(db, "users")).then((snapshot) => {
+        snapshot.forEach((doc) => {
+          if (doc.get("uid") === this.email) {
+            this.currentUserdata.push(doc.data())
+          }
+        })
+      })
   },
 }
 </script>

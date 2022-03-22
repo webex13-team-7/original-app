@@ -8,6 +8,21 @@
       <div class="col">
         <router-link to="/result">Result</router-link>
       </div>
+      <div class="col">
+        <a href="#" v-on:click="logOut">log-out</a>
+      </div>
     </div>
   </nav>
 </template>
+
+<script>
+import { getAuth, signOut } from "firebase/auth"
+export default {
+  methods: {
+    logOut() {
+      signOut(getAuth()).then(() => {})
+      this.$router.push("log-in")
+    },
+  },
+}
+</script>

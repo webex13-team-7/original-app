@@ -20,7 +20,7 @@
           : 'p-2'
       "
     >
-      <div class="col-3">{{ schedule.id }}</div>
+      <div class="col-3">{{ schedule.name }}</div>
 
       <div class="col-1" v-if="schedule.schedule[0].monday == 'true'">〇</div>
       <div class="col-1" v-else-if="schedule.schedule[0].monday == 'false'">
