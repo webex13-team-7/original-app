@@ -1,16 +1,17 @@
 <template>
-  <div class="home">
-    <router-link to="/sign-up">
-      <div class="linkbox">
-        <p>Sign-Up</p>
+  <div class="container container-xxl m-5 p-5">
+    <div class="row mt-xxl-5">
+      <div class="col-6 mt-lg-4 p-auto">
+        <router-link to="/sign-up"
+          ><button class="btn btn-success">新規登録</button></router-link
+        >
       </div>
-    </router-link>
-
-    <router-link to="/log-in">
-      <div class="linkbox">
-        <p>Log-In</p>
+      <div class="col-6 mt-lg-4 p-auto">
+        <router-link to="/log-in"
+          ><button class="btn btn-success">ログイン</button></router-link
+        >
       </div>
-    </router-link>
+    </div>
   </div>
 
   <router-view></router-view>

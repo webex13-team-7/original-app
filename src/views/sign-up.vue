@@ -8,7 +8,7 @@
         </div>
         <div class="row m-2">
           <div class="col col-3 m-auto">
-            <input type="text" v-model="email" />
+            <input type="text" class="form-control" v-model="email" />
           </div>
         </div>
         <div class="row">
@@ -16,7 +16,7 @@
         </div>
         <div class="row m-2">
           <div class="col col-3 m-auto">
-            <input type="text" v-model="password" />
+            <input type="text" class="form-control" v-model="password" />
           </div>
         </div>
         <div class="row">
@@ -24,7 +24,7 @@
         </div>
         <div class="row m-2">
           <div class="col col-3 m-auto">
-            <input type="text" v-model="employeeName" />
+            <input type="text" class="form-control" v-model="employeeName" />
           </div>
         </div>
         <div class="row">
