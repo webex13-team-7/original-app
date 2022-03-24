@@ -71,12 +71,17 @@
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           v-on:click="editGetData(schedule)"
+          v-if="currentUerId == schedule.uid"
         >
           編集
         </button>
       </div>
       <div class="col-1">
-        <button class="btn btn-danger btn-sm" v-on:click="bye(schedule)">
+        <button
+          class="btn btn-danger btn-sm"
+          v-if="currentUerId == schedule.uid"
+          v-on:click="bye(schedule)"
+        >
           削除
         </button>
       </div>
@@ -198,10 +203,12 @@ import { collection, getDocs, updateDoc, getDoc } from "firebase/firestore"
 // import { updateDoc, deleteField } from "firebase/firestore";
 import { db } from "../firebase"
 import { doc, deleteDoc } from "firebase/firestore"
+import { onAuthStateChanged, getAuth } from "firebase/auth"
 
 export default {
   data() {
     return {
+      currentUerId: "",
       modalId: "",
       schedules2: [],
       schedules: [
@@ -257,6 +264,11 @@ export default {
           ...doc.data(),
         })
       })
+    })
+    onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        this.currentUerId = user.email
+      }
     })
   },
 }

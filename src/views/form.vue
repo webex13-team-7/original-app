@@ -226,6 +226,7 @@ export default {
         schedule: this.schedules2,
         name: this.currentUserdata[0].name,
         status: this.currentUserdata[0].status,
+        uid: this.currentUserdata[0].uid,
       })
       this.$router.push("result")
     },

@@ -203,3 +203,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 // Firestoreを読み込み、db(databaseの略)として export
 export const db = getFirestore(app)
+import { onAuthStateChanged, getAuth } from "firebase/auth"
+export const currentUser = onAuthStateChanged(getAuth(), (user) => {
+  return user.email
+})
