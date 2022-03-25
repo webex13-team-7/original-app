@@ -205,7 +205,7 @@
   </div>
 </template>
 <script>
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, addDoc } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { db } from "../firebase"
 
@@ -369,6 +369,23 @@ export default {
         this.friday.push(onesSchedule.schedule[4].friday)
         this.saturday.push(onesSchedule.schedule[5].saturday)
         this.sunday.push(onesSchedule.schedule[6].sunday)
+      })
+    },
+    submit() {
+      addDoc(collection(db, "sifts"), {
+        monday1: this.unko1,
+        monday2: this.unko2,
+        monday3: this.unko3,
+        monday4: this.unko4,
+        monday5: this.unko5,
+        monday6: this.unko6,
+        monday7: this.unko7,
+        monday8: this.unko8,
+        monday9: this.unko9,
+        monday10: this.unko10,
+        monday11: this.unko11,
+        monday12: this.unko12,
+        monday13: this.unko13,
       })
     },
   },
