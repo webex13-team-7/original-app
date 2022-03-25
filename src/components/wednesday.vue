@@ -30,7 +30,7 @@
       <div
         class="col"
         v-on:click="changeColor1(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('1')"
+        v-if="scheduledata.schedule[2].wednesday.includes('1')"
         v-bind:class="
           unko1.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -43,7 +43,7 @@
       <div
         class="col"
         v-on:click="changeColor2(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('2')"
+        v-if="scheduledata.schedule[2].wednesday.includes('2')"
         v-bind:class="
           unko2.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -56,7 +56,7 @@
       <div
         class="col"
         v-on:click="changeColor3(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('3')"
+        v-if="scheduledata.schedule[2].wednesday.includes('3')"
         v-bind:class="
           unko3.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -69,7 +69,7 @@
       <div
         class="col"
         v-on:click="changeColor4(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('4')"
+        v-if="scheduledata.schedule[2].wednesday.includes('4')"
         v-bind:class="
           unko4.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -82,7 +82,7 @@
       <div
         class="col"
         v-on:click="changeColor5(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('5')"
+        v-if="scheduledata.schedule[2].wednesday.includes('5')"
         v-bind:class="
           unko5.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -95,7 +95,7 @@
       <div
         class="col"
         v-on:click="changeColor6(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('6')"
+        v-if="scheduledata.schedule[2].wednesday.includes('6')"
         v-bind:class="
           unko6.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -108,7 +108,7 @@
       <div
         class="col"
         v-on:click="changeColor7(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('7')"
+        v-if="scheduledata.schedule[2].wednesday.includes('7')"
         v-bind:class="
           unko7.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -121,7 +121,7 @@
       <div
         class="col"
         v-on:click="changeColor8(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('8')"
+        v-if="scheduledata.schedule[2].wednesday.includes('8')"
         v-bind:class="
           unko8.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -134,7 +134,7 @@
       <div
         class="col"
         v-on:click="changeColor9(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('9')"
+        v-if="scheduledata.schedule[2].wednesday.includes('9')"
         v-bind:class="
           unko9.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -147,7 +147,7 @@
       <div
         class="col"
         v-on:click="changeColor10(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('10')"
+        v-if="scheduledata.schedule[2].wednesday.includes('10')"
         v-bind:class="
           unko10.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -160,7 +160,7 @@
       <div
         class="col"
         v-on:click="changeColor11(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('11')"
+        v-if="scheduledata.schedule[2].wednesday.includes('11')"
         v-bind:class="
           unko11.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -173,7 +173,7 @@
       <div
         class="col"
         v-on:click="changeColor12(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('12')"
+        v-if="scheduledata.schedule[2].wednesday.includes('12')"
         v-bind:class="
           unko12.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -186,7 +186,7 @@
       <div
         class="col"
         v-on:click="changeColor13(scheduledata)"
-        v-if="scheduledata.schedule[0].monday.includes('13')"
+        v-if="scheduledata.schedule[2].wednesday.includes('13')"
         v-bind:class="
           unko13.includes(scheduledata)
             ? ['col', 'bg-primary', 'p-2', 'm-0']
@@ -212,7 +212,7 @@ import { db } from "../firebase"
 export default {
   data() {
     return {
-      date: "月曜",
+      date: "水曜",
       Names: ["tinko", "manko", "unko"],
       scheduleDatas: [],
       scheduleWeeklyDatas: [],
