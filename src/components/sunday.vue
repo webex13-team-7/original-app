@@ -4,7 +4,7 @@
       <div class="col mb-5">
         <h3>{{ date }}</h3>
       </div>
-    </div>
+    </div> 
     <div class="row mt-3">
       <div class="col">-</div>
       <div class="col">10-11</div>
