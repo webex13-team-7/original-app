@@ -199,7 +199,7 @@
     </div>
     <div class="row mt-5">
       <div class="col">
-        <button class="btn btn-success" v-on:click="submit">確定</button>
+        <button class="btn btn-success">確定</button>
       </div>
     </div>
   </div>
@@ -358,18 +358,6 @@ export default {
           return value !== scheduledata
         })
       }
-    },
-    weeklyToDay() {
-      this.scheduleDatas.forEach((onesSchedule) => {
-        this.whoCanWork.push(onesSchedule.name)
-        this.monday.push(onesSchedule.schedule[0].monday)
-        this.tuesday.push(onesSchedule.schedule[1].tuesday)
-        this.wednesday.push(onesSchedule.schedule[2].wednesday)
-        this.thursday.push(onesSchedule.schedule[3].thursday)
-        this.friday.push(onesSchedule.schedule[4].friday)
-        this.saturday.push(onesSchedule.schedule[5].saturday)
-        this.sunday.push(onesSchedule.schedule[6].sunday)
-      })
     },
   },
   created() {
