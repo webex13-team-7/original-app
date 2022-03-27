@@ -25,6 +25,8 @@
     </div>
   </div>
   <component v-bind:is="whichDay"></component>
+  {{ mondayData }}
+  {{ check }}
 </template>
 
 <script>
@@ -41,43 +43,50 @@ import sunday from "@/components/sunday.vue"
 
 export default {
   components: {
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    sunday,
+    1: monday,
+    2: tuesday,
+    3: wednesday,
+    4: thursday,
+    5: friday,
+    6: saturday,
+    7: sunday,
   },
   data() {
     return {
       date: "月曜",
       scheduleDatas: [],
       currentUser: "",
-      whichDay: "monday",
+      whichDay: "1",
+      mondayData: [],
+      tuesdayData: [],
+      wednesdayData: [],
+      thursdayData: [],
+      fridayData: [],
+      saturdayData: [],
+      sundayData: [],
     }
   },
   methods: {
     toMonday() {
-      this.whichDay = "monday"
+      this.whichDay = "1"
     },
     toTuesday() {
-      this.whichDay = "tuesday"
+      this.whichDay = "2"
     },
     toWednesday() {
-      this.whichDay = "wednesday"
+      this.whichDay = "3"
     },
     toThursday() {
-      this.whichDay = "thursday"
+      this.whichDay = "4"
     },
     toFriday() {
-      this.whichDay = "friday"
+      this.whichDay = "5"
     },
     toSaturday() {
-      this.whichDay = "saturday"
+      this.whichDay = "6"
     },
     toSunday() {
-      this.whichDay = "sunday"
+      this.whichDay = "7"
     },
     weeklyToDay() {
       this.scheduleDatas.forEach((onesSchedule) => {
@@ -92,6 +101,13 @@ export default {
       })
     },
   },
+  computed: {
+    check: function () {
+      let monday = 0
+      monday = this.mondayData.length
+      return monday
+    },
+  },
   created() {
     getDocs(collection(db, "schedule")).then((manko) => {
       manko.forEach((doc) => {
@@ -104,6 +120,17 @@ export default {
         }
       }),
       this.weeklyToDay()
+    getDocs(collection(db, "sifts")).then((snapshot) => {
+      snapshot.forEach((doc) => {
+        this.mondayData.push(doc.get("monday"))
+        this.tuesdayData.push(doc.get("tuesday"))
+        this.wednesdayData.push(doc.get("wednesday"))
+        this.thursdayData.push(doc.get("thursday"))
+        this.fridayData.push(doc.get("friday"))
+        this.saturdayData.push(doc.get("saturday"))
+        this.sundayData.push(doc.get("sunday"))
+      })
+    })
   },
 }
 </script>

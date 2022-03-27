@@ -1,31 +1,59 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col">{{ text }}</div>
-      <div class="col">{{ date }}</div>
+  <div class="container shadow mt-5">
+    <div class="container container-lg p-5">
+      <div class="row row-cols-auto">
+        <div class="col">{{ userName[0] }}さんのマイページ</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <button class="btn" v-on:click="toForm">シフト登録</button>
+        </div>
+        <div class="col">
+          <button class="btn" v-on:click="toTable">シフト編集</button>
+        </div>
+        <div class="col">
+          <button class="btn" v-on:click="toTable">今週のシフト</button>
+        </div>
+      </div>
+      <div class="row">
+        <component v-bind:is="whichPage"></component>
+      </div>
     </div>
   </div>
-  <Form />
-  <Table />
 </template>
 <script>
+import { db } from "../firebase"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import { collection, getDocs } from "@firebase/firestore"
+
 import Form from "@/components/form.vue"
 import Table from "@/components/tableOX.vue"
-
 
 export default {
   components: {
     Form: Form,
-    Table: Table
+    Table: Table,
   },
   data() {
     return {
       text: "unko",
       date: "",
       youbi: ["日", "月", "火", "水", "木", "金", "土"],
+      whichPage: "Table",
+      userName: [],
+      userData: [],
+      userEmail: "",
     }
   },
   methods: {
+    toForm() {
+      this.whichPage = "Form"
+    },
+    toTable() {
+      this.whichPage = "Table"
+    },
     Calender() {
       this.date =
         new Date().getMonth() +
@@ -37,7 +65,21 @@ export default {
         "曜日"
     },
   },
-  created() {
+  created: function () {
+    onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        this.userEmail = user.email
+        getDocs(collection(db, "users")).then((snapshot) => {
+          snapshot.forEach((doc) => {
+            if (doc.get("uid") === this.userEmail) {
+              this.userData.push(doc.data())
+              this.userName.push(doc.get("name"))
+              this.logedIn = true
+            }
+          })
+        })
+      }
+    })
     this.Calender()
   },
 }
