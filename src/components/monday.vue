@@ -203,6 +203,8 @@
       </div>
     </div>
   </div>
+  {{ kitchenNinzu1 }}
+  {{ wholeNinzu1 }}
 </template>
 <script>
 import { collection, getDocs, addDoc } from "firebase/firestore"
@@ -387,6 +389,26 @@ export default {
         monday12: this.unko12,
         monday13: this.unko13,
       })
+    },
+  },
+  computed: {
+    kitchenNinzu1: function () {
+      let kitchenNinzu = 0
+      this.unko1.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu1: function () {
+      let wholeNinzu = 0
+      this.unko1.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
     },
   },
   created() {

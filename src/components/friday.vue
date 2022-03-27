@@ -205,7 +205,7 @@
   </div>
 </template>
 <script>
-import { collection, getDocs } from "firebase/firestore"
+import { addDoc, collection, getDocs } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { db } from "../firebase"
 
@@ -359,16 +359,21 @@ export default {
         })
       }
     },
-    weeklyToDay() {
-      this.scheduleDatas.forEach((onesSchedule) => {
-        this.whoCanWork.push(onesSchedule.name)
-        this.monday.push(onesSchedule.schedule[0].monday)
-        this.tuesday.push(onesSchedule.schedule[1].tuesday)
-        this.wednesday.push(onesSchedule.schedule[2].wednesday)
-        this.thursday.push(onesSchedule.schedule[3].thursday)
-        this.friday.push(onesSchedule.schedule[4].friday)
-        this.saturday.push(onesSchedule.schedule[5].saturday)
-        this.sunday.push(onesSchedule.schedule[6].sunday)
+    submit() {
+      addDoc(collection(db, "sifts"), {
+        friday1: this.unko1,
+        friday2: this.unko2,
+        friday3: this.unko3,
+        friday4: this.unko4,
+        friday5: this.unko5,
+        friday6: this.unko6,
+        friday7: this.unko7,
+        friday8: this.unko8,
+        friday9: this.unko9,
+        friday10: this.unko10,
+        friday11: this.unko11,
+        friday12: this.unko12,
+        friday13: this.unko13,
       })
     },
   },
