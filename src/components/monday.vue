@@ -207,7 +207,7 @@
   {{ wholeNinzu1 }}
 </template>
 <script>
-import { collection, getDocs, addDoc } from "firebase/firestore"
+import { collection, setDoc, doc, getDocs } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { db } from "../firebase"
 
@@ -374,7 +374,7 @@ export default {
       })
     },
     submit() {
-      addDoc(collection(db, "sifts"), {
+      setDoc(doc(db, "sifts", "monday"), {
         monday1: this.unko1,
         monday2: this.unko2,
         monday3: this.unko3,
