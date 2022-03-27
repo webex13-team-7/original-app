@@ -205,7 +205,7 @@
   </div>
 </template>
 <script>
-import { addDoc, collection, getDocs } from "firebase/firestore"
+import { setDoc, collection, doc, getDocs } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { db } from "../firebase"
 
@@ -372,7 +372,7 @@ export default {
       })
     },
     submit() {
-      addDoc(collection(db, "sifts"), {
+      setDoc(doc(db, "sifts", "wednesday"), {
         wednesday1: this.unko1,
         wednesday2: this.unko2,
         wednesday3: this.unko3,
