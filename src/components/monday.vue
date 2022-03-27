@@ -1,5 +1,5 @@
 <template>
-{{ unko1 }}
+  {{ unko1 }}
   <div class="container m-5 p-5 shadow">
     <div class="row m-1">
       <div class="col mb-5">
@@ -197,6 +197,100 @@
         〇
       </div>
       <div class="col p-2 m-0 bg-light" v-else>✕</div>
+    </div>
+    <div class="row m-0">
+      <div class="col p-2 m-0">うんこ</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu2 === 0 || wholeNinzu2 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
     </div>
     <div class="row mt-5">
       <div class="col">
@@ -405,6 +499,24 @@ export default {
     wholeNinzu1: function () {
       let wholeNinzu = 0
       this.unko1.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu2: function () {
+      let kitchenNinzu = 0
+      this.unko2.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu2: function () {
+      let wholeNinzu = 0
+      this.unko2.forEach((value) => {
         if (value.status.whole === true) {
           wholeNinzu++
         }
