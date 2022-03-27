@@ -466,6 +466,34 @@ export default {
       })
     },
     submit() {
+      if(
+        this.kitchenNinzu1 !== 0 &&
+        this.wholeNinzu1 !== 0 &&
+        this.kitchenNinzu2 !== 0 &&
+        this.wholeNinzu2 !== 0 &&
+        this.kitchenNinzu3 !== 0 &&
+        this.wholeNinzu3 !== 0 &&
+        this.kitchenNinzu4 !== 0 &&
+        this.wholeNinzu4 !== 0 &&
+        this.kitchenNinzu5 !== 0 &&
+        this.wholeNinzu5 !== 0 &&
+        this.kitchenNinzu6 !== 0 &&
+        this.wholeNinzu6 !== 0 &&
+        this.kitchenNinzu7 !== 0 &&
+        this.wholeNinzu7 !== 0 &&
+        this.kitchenNinzu8 !== 0 &&
+        this.wholeNinzu8 !== 0 &&
+        this.kitchenNinzu9 !== 0 &&
+        this.wholeNinzu9 !== 0 &&
+        this.kitchenNinzu10 !== 0 &&
+        this.wholeNinzu10 !== 0 &&
+        this.kitchenNinzu11 !== 0 &&
+        this.wholeNinzu11 !== 0 &&
+        this.kitchenNinzu12 !== 0 &&
+        this.wholeNinzu12 !== 0 &&
+        this.kitchenNinzu13 !== 0 &&
+        this.wholeNinzu13 !== 0
+      ){
       setDoc(doc(db, "sifts", "wednesday"), {
         wednesday1: this.unko1,
         wednesday2: this.unko2,
@@ -481,6 +509,9 @@ export default {
         wednesday12: this.unko12,
         wednesday13: this.unko13,
       })
+      }else{
+        alert("キッチンスタッフあるいはホールスタッフがいない時間帯があります！！")
+      }
     },
   },
   computed: {
