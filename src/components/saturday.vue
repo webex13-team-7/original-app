@@ -197,6 +197,100 @@
       </div>
       <div class="col p-2 m-0 bg-light" v-else>✕</div>
     </div>
+    <div class="row m-0">
+      <div class="col p-2 m-0">うんこ</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu1 === 0 || wholeNinzu1 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu2 === 0 || wholeNinzu2 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu3 === 0 || wholeNinzu3 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu4 === 0 || wholeNinzu4 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu5 === 0 || wholeNinzu5 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu6 === 0 || wholeNinzu6 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu7 === 0 || wholeNinzu7 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu8 === 0 || wholeNinzu8 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu9 === 0 || wholeNinzu9 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu10 === 0 || wholeNinzu10 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu11 === 0 || wholeNinzu11 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu12 === 0 || wholeNinzu12 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+      <div
+        class="col bg-danger p-2 m-0"
+        v-if="kitchenNinzu13 === 0 || wholeNinzu13 === 0"
+      >
+        ✕
+      </div>
+      <div class="col bg-primary p-2 m-0" v-else>〇</div>
+    </div>
     <div class="row mt-5">
       <div class="col">
         <button class="btn btn-success" v-on:click="submit">確定</button>
@@ -387,6 +481,242 @@ export default {
         saturday12: this.unko12,
         saturday13: this.unko13,
       })
+    },
+  },
+    computed: {
+    kitchenNinzu1: function () {
+      let kitchenNinzu = 0
+      this.unko1.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu1: function () {
+      let wholeNinzu = 0
+      this.unko1.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu2: function () {
+      let kitchenNinzu = 0
+      this.unko2.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu2: function () {
+      let wholeNinzu = 0
+      this.unko2.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu3: function () {
+      let kitchenNinzu = 0
+      this.unko3.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu3: function () {
+      let wholeNinzu = 0
+      this.unko3.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu4: function () {
+      let kitchenNinzu = 0
+      this.unko4.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu4: function () {
+      let wholeNinzu = 0
+      this.unko4.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu5: function () {
+      let kitchenNinzu = 0
+      this.unko5.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu5: function () {
+      let wholeNinzu = 0
+      this.unko5.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu6: function () {
+      let kitchenNinzu = 0
+      this.unko6.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu6: function () {
+      let wholeNinzu = 0
+      this.unko6.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu7: function () {
+      let kitchenNinzu = 0
+      this.unko7.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu7: function () {
+      let wholeNinzu = 0
+      this.unko7.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu8: function () {
+      let kitchenNinzu = 0
+      this.unko8.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu8: function () {
+      let wholeNinzu = 0
+      this.unko8.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu9: function () {
+      let kitchenNinzu = 0
+      this.unko9.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu9: function () {
+      let wholeNinzu = 0
+      this.unko9.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu10: function () {
+      let kitchenNinzu = 0
+      this.unko10.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu10: function () {
+      let wholeNinzu = 0
+      this.unko10.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu11: function () {
+      let kitchenNinzu = 0
+      this.unko11.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu11: function () {
+      let wholeNinzu = 0
+      this.unko11.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu12: function () {
+      let kitchenNinzu = 0
+      this.unko12.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu12: function () {
+      let wholeNinzu = 0
+      this.unko12.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
+    },
+    kitchenNinzu13: function () {
+      let kitchenNinzu = 0
+      this.unko13.forEach((value) => {
+        if (value.status.kitchen === true) {
+          kitchenNinzu++
+        }
+      })
+      return kitchenNinzu
+    },
+    wholeNinzu13: function () {
+      let wholeNinzu = 0
+      this.unko13.forEach((value) => {
+        if (value.status.whole === true) {
+          wholeNinzu++
+        }
+      })
+      return wholeNinzu
     },
   },
   created() {
