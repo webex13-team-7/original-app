@@ -3,12 +3,21 @@
     <div class="row">
       <div class="col">{{ text }}</div>
       <div class="col">{{ date }}</div>
-      <button v-on:click="Calender">unko</button>
     </div>
   </div>
+  <Form />
+  <Table />
 </template>
 <script>
+import Form from "@/components/form.vue"
+import Table from "@/components/tableOX.vue"
+
+
 export default {
+  components: {
+    Form: Form,
+    Table: Table
+  },
   data() {
     return {
       text: "unko",
