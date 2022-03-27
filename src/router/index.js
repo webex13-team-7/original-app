@@ -5,11 +5,17 @@ import logIn from "../views/log-in.vue"
 import result from "../views/result.vue"
 import form from "../views/form.vue"
 import manage from "../views/manage.vue"
+import mypage from "../views/mypage.vue"
 const routes = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/my-page",
+    name: "may-page",
+    component: mypage,
   },
   {
     path: "/sign-up",
