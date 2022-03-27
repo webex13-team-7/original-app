@@ -3,7 +3,7 @@ import Home from "../views/Home.vue"
 import signUp from "../views/sign-up.vue"
 import logIn from "../views/log-in.vue"
 import result from "../views/result.vue"
-import form from "../views/form.vue"
+// import form from "../views/form.vue"
 import manage from "../views/manage.vue"
 import mypage from "../views/mypage.vue"
 const routes = [
@@ -37,11 +37,11 @@ const routes = [
     name: "result",
     component: result,
   },
-  {
-    path: "/form",
-    name: "form",
-    component: form,
-  },
+  // {
+  //   path: "/form",
+  //   name: "form",
+  //   component: form,
+  // },
   {
     path: "/about",
     name: "About",

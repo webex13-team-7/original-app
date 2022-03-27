@@ -6,7 +6,7 @@
       <div class="col" v-if="logedIn">{{ userName }}さんがログイン中です。</div>
       <div class="col" v-else></div>
       <div class="col" v-if="logedIn">
-        <router-link to="/form">Form</router-link>
+        <!-- <router-link to="/form">Form</router-link> -->
       </div>
       <div class="col" v-else></div>
       <div class="col" v-if="logedIn">
