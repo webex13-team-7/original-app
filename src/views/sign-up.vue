@@ -138,7 +138,7 @@ export default {
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           this.user = userCredential.user
-          this.$router.push("form")
+          this.$router.push("my-page")
         })
         .catch((error) => {
           this.errorCode = error.code

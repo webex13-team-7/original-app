@@ -1,5 +1,4 @@
 <template>
-  {{ unko1 }}
   <div class="container m-5 p-5 shadow">
     <div class="row m-1">
       <div class="col mb-5">
@@ -298,8 +297,6 @@
       </div>
     </div>
   </div>
-  {{ kitchenNinzu1 }}
-  {{ wholeNinzu1 }}
 </template>
 <script>
 import { collection, setDoc, doc, getDocs } from "firebase/firestore"

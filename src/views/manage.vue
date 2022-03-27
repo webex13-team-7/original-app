@@ -25,8 +25,6 @@
     </div>
   </div>
   <component v-bind:is="whichDay"></component>
-  {{ mondayData }}
-  {{ check }}
 </template>
 
 <script>
