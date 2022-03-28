@@ -1,22 +1,35 @@
 <template>
+  {{ schedules }}
   <div class="container shadow">
     <div class="row"><h1>シフト作成画面</h1></div>
+    <div class="row-12">{{ siftStartMonth }}月{{ whichDay }}日のシフト</div>
+    <div class="row">
+      <div class="col" v-for="(Day, index) in Days" v-bind:key="index">
+        <button class="btn" v-on:click="toWhichiDay(Day)">{{ Day }}</button>
+      </div>
+    </div>
     <div class="container">
       <div class="row">
-        <div class="col">-</div>
+        <div class="col">名前</div>
         <div class="col" v-for="(option, index) in Options" v-bind:key="index">
           {{ option }}
         </div>
       </div>
       <div
         class="row"
-        v-for="(schedule, index) in schedules"
+        v-for="(schedule, index) in whichSift"
         v-bind:key="index"
       >
         <div class="col">
-          {{ schedule.name }}
+          {{ schedule.employeeName }}
         </div>
-        <div class="col">{{ schedule.schedule }}</div>
+        <div
+          class="col"
+          v-for="(time, index) in schedule.workingTime"
+          v-bind:key="index"
+        >
+          {{ time }}
+        </div>
       </div>
     </div>
   </div>
@@ -42,9 +55,18 @@ export default {
       email: "",
       currentUserdata: [],
       schedules: [],
+      whichDay: 0,
+      whichSift: [],
+      compiledSift: [],
     }
   },
   methods: {
+    default() {
+      this.whichDay = this.siftStartday
+    },
+    toWhichiDay(Day) {
+      this.whichDay = Day
+    },
     Calender() {
       this.Month = new Date().getMonth() + 1
       this.today = new Date().getDate()
@@ -94,14 +116,11 @@ export default {
         })
       }
     },
-    // calcu() {
-    //   this.employeeName = this.currentUserdata[0].name
-    //   this.employeeStatus = this.currentUserdata[0].status
-    // },
   },
   created() {
-    this.Caleder()
-    this.whenToStar()
+    this.Calender()
+    this.whenToStart()
+    this.default()
     this.whenToEnd()
     this.getDays()
     getDoc(doc(db, "company", "天下一品千里小野原店")).then((snapshot) => {
@@ -117,6 +136,7 @@ export default {
     })
     getDocs(collection(db, "schedule")).then((snapshot) => {
       snapshot.forEach((doc) => {
+        if
         this.schedules.push(doc.data())
       })
     })
