@@ -4,7 +4,7 @@
       <div class="col mb-5">
         <h3>{{ date }}</h3>
       </div>
-    </div> 
+    </div>
     <div class="row mt-3">
       <div class="col">-</div>
       <div class="col">10-11</div>
@@ -299,7 +299,7 @@
   </div>
 </template>
 <script>
-import { collection, getDocs, doc,setDoc} from "firebase/firestore"
+import { collection, getDocs, doc, setDoc } from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 import { db } from "../firebase"
 
@@ -466,7 +466,7 @@ export default {
       })
     },
     submit() {
-      setDoc(doc(db, "sifts" , "sunday"), {
+      setDoc(doc(db, "sifts", "sunday"), {
         sunday1: this.unko1,
         sunday2: this.unko2,
         sunday3: this.unko3,
@@ -483,7 +483,7 @@ export default {
       })
     },
   },
-    computed: {
+  computed: {
     kitchenNinzu1: function () {
       let kitchenNinzu = 0
       this.unko1.forEach((value) => {

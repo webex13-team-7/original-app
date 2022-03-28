@@ -8,9 +8,6 @@
       <div class="row pt-4 pb-3 bg-success text-white">
         <h1>シフトを選択してください</h1>
       </div>
-      <!-- <div class="row pt-4 pb-3 bg-success text-white" v-else>
-        <h1>送信完了しました！</h1>
-      </div> -->
       <div class="row mt-2">
         <div class="col mt-5"><p>月</p></div>
         <div class="col mt-5"><p>火</p></div>
@@ -186,11 +183,12 @@
     </div>
     <div class="getdata">{{ getData }}入力値</div>
     <div>{{ currentUserdata }}ログイン中のユーザー情報</div>
+    {{ day }}
   </form>
 </template>
 
 <script>
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { setDoc, doc, collection, getDocs } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "../firebase"
 
@@ -217,18 +215,36 @@ export default {
       sunday: [],
       email: "",
       currentUserdata: [],
+      day: "",
+      youbi: ["日", "月", "火", "水", "木", "金", "土"],
     }
   },
   methods: {
     postSchedule() {
       this.getAnswer()
-      addDoc(collection(db, "schedule"), {
+      setDoc(doc(db, "schedule", `${this.day}`), {
         schedule: this.schedules2,
         name: this.currentUserdata[0].name,
         status: this.currentUserdata[0].status,
         uid: this.currentUserdata[0].uid,
       })
-      this.$router.push("result")
+      // addDoc(collection(db, "schedule"), {
+      //   schedule: this.schedules2,
+      //   name: this.currentUserdata[0].name,
+      //   status: this.currentUserdata[0].status,
+      //   uid: this.currentUserdata[0].uid,
+      // })
+      this.$router.push("my-page")
+    },
+    Calender() {
+      this.day =
+        new Date().getMonth() +
+        1 +
+        "月" +
+        new Date().getDate() +
+        "日" +
+        this.youbi[new Date().getDay()] +
+        "曜日"
     },
     getAnswer() {
       this.schedules2[0].monday = this.monday
@@ -259,6 +275,7 @@ export default {
           }
         })
       })
+    this.Calender()
   },
 }
 </script>
