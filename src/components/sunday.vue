@@ -466,21 +466,54 @@ export default {
       })
     },
     submit() {
-      setDoc(doc(db, "sifts", "sunday"), {
-        sunday1: this.unko1,
-        sunday2: this.unko2,
-        sunday3: this.unko3,
-        sunday4: this.unko4,
-        sunday5: this.unko5,
-        sunday6: this.unko6,
-        sunday7: this.unko7,
-        sunday8: this.unko8,
-        sunday9: this.unko9,
-        sunday10: this.unko10,
-        sunday11: this.unko11,
-        sunday12: this.unko12,
-        sunday13: this.unko13,
-      })
+      if (
+        this.kitchenNinzu1 !== 0 &&
+        this.wholeNinzu1 !== 0 &&
+        this.kitchenNinzu2 !== 0 &&
+        this.wholeNinzu2 !== 0 &&
+        this.kitchenNinzu3 !== 0 &&
+        this.wholeNinzu3 !== 0 &&
+        this.kitchenNinzu4 !== 0 &&
+        this.wholeNinzu4 !== 0 &&
+        this.kitchenNinzu5 !== 0 &&
+        this.wholeNinzu5 !== 0 &&
+        this.kitchenNinzu6 !== 0 &&
+        this.wholeNinzu6 !== 0 &&
+        this.kitchenNinzu7 !== 0 &&
+        this.wholeNinzu7 !== 0 &&
+        this.kitchenNinzu8 !== 0 &&
+        this.wholeNinzu8 !== 0 &&
+        this.kitchenNinzu9 !== 0 &&
+        this.wholeNinzu9 !== 0 &&
+        this.kitchenNinzu10 !== 0 &&
+        this.wholeNinzu10 !== 0 &&
+        this.kitchenNinzu11 !== 0 &&
+        this.wholeNinzu11 !== 0 &&
+        this.kitchenNinzu12 !== 0 &&
+        this.wholeNinzu12 !== 0 &&
+        this.kitchenNinzu13 !== 0 &&
+        this.wholeNinzu13 !== 0
+      ) {
+        setDoc(doc(db, "sifts", "sunday"), {
+          sunday1: this.unko1,
+          sunday2: this.unko2,
+          sunday3: this.unko3,
+          sunday4: this.unko4,
+          sunday5: this.unko5,
+          sunday6: this.unko6,
+          sunday7: this.unko7,
+          sunday8: this.unko8,
+          sunday9: this.unko9,
+          sunday10: this.unko10,
+          sunday11: this.unko11,
+          sunday12: this.unko12,
+          sunday13: this.unko13,
+        })
+      } else {
+        alert(
+          "キッチンスタッフあるいはホールスタッフがいない時間帯があります！！"
+        )
+      }
     },
   },
   computed: {
