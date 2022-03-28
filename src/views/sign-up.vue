@@ -1,103 +1,77 @@
 <template>
-  <div class="container p-2">
-    <div class="row"><h1>Sign Up</h1></div>
+  <div class="container mt-5 p-5 shadow" style="width: 800px">
     <div class="row">
-      <div class="container m-1 p-1">
-        <div class="row">
-          <div class="col col-3 m-auto">e-mail</div>
-        </div>
-        <div class="row m-2">
-          <div class="col col-3 m-auto">
-            <input type="text" class="form-control" v-model="email" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-3 m-auto">password</div>
-        </div>
-        <div class="row m-2">
-          <div class="col col-3 m-auto">
-            <input type="text" class="form-control" v-model="password" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-3 m-auto">name</div>
-        </div>
-        <div class="row m-2">
-          <div class="col col-3 m-auto">
-            <input type="text" class="form-control" v-model="employeeName" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-3 m-auto">役職</div>
-        </div>
-        <div class="row m-2">
-          <!-- <div
-            class="form-check col-1 m-auto"
-            v-for="(checkbox, index) in checkboxes"
-            v-bind:key="index"
-          >
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value="true"
-              id="flexCheckDefault"
-              v-model="value"
-            />
-            <label class="form-check-label" for="flexCheckDefault">
-              {{ checkbox }}
-            </label>
-          </div> -->
-          <div class="container">
-            <div class="row form-check">
-              <div class="col-1 m-auto">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="true"
-                  id="flexCheckDefault"
-                  v-model="kitchen"
-                />
-              </div>
-              <div class="col-1 m-auto">
-                <label class="form-check-label" for="flexCheckDefault">
-                  キッチン
-                </label>
-              </div>
-            </div>
-            <div class="row form-check m-auto">
-              <div class="col-1 m-auto">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value="true"
-                  id="flexCheckDefault"
-                  v-model="whole"
-                />
-              </div>
-              <div class="col-1 m-auto">
-                <label class="form-check-label" for="flexCheckDefault">
-                  ホール
-                </label>
-              </div>
-            </div>
-          </div>
+      <div class="col-4 m-auto"><h1>Sign Up</h1></div>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="col m-auto">e-mail</div>
+      </div>
+      <div class="row m-2">
+        <div class="col-6 m-auto">
+          <input type="text" class="form-control" v-model="email" />
         </div>
       </div>
+      <div class="row">
+        <div class="col m-auto">password</div>
+      </div>
+      <div class="row m-2">
+        <div class="col-6 m-auto">
+          <input type="text" class="form-control" v-model="password" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m-auto">name</div>
+      </div>
+      <div class="row m-2">
+        <div class="col-5 m-auto">
+          <input type="text" class="form-control" v-model="employeeName" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m-auto">役職</div>
+      </div>
     </div>
-
-    <div class="row">
+    <div class="row form-check m-auto">
+      <div class="col-2 m-auto">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="true"
+          id="flexCheckDefault"
+          v-model="kitchen"
+        />
+      </div>
+      <div class="col-3 m-auto">
+        <label class="form-check-label" for="flexCheckDefault">
+          キッチン
+        </label>
+      </div>
+    </div>
+    <div class="row form-check m-auto">
+      <div class="col-2 m-auto">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="true"
+          id="flexCheckDefault"
+          v-model="whole"
+        />
+      </div>
+      <div class="col-3 m-auto">
+        <label class="form-check-label" for="flexCheckDefault"> ホール </label>
+      </div>
+    </div>
+    <div class="row mt-3">
       <div class="col">
-        <button class="btn btn-primary btn-sm" v-on:click="submit">登録</button>
+        <button class="btn btn-primary btn-md" v-on:click="submit">登録</button>
       </div>
     </div>
   </div>
-  {{ errorCode }},{{ errorMessage }}
-  {{ unko }}
-  {{ returnValue }}
 </template>
 
 <script>
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { setDoc, doc, collection, getDocs } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "../firebase"
 
@@ -119,18 +93,24 @@ export default {
       errorCode: "",
       errorMessage: "",
       user: "",
-      kitchen: false,
-      whole: false,
+      kitchen: "",
+      whole: "",
     }
   },
   methods: {
     submit() {
-      addDoc(collection(db, "users"), {
+      setDoc(doc(db, "users", `${this.employeeName}`), {
         uid: this.email,
         password: this.password,
         name: this.employeeName,
-        status: this.value,
+        status: this.getValue,
       })
+      // addDoc(collection(db, "users"), {
+      //   uid: this.email,
+      //   password: this.password,
+      //   name: this.employeeName,
+      //   status: this.value,
+      // })
       this.signUp()
     },
     signUp() {
@@ -138,7 +118,7 @@ export default {
       createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           this.user = userCredential.user
-          this.$router.push("form")
+          this.$router.push("my-page")
         })
         .catch((error) => {
           this.errorCode = error.code
@@ -156,10 +136,13 @@ export default {
           this.errorMessage = error.message
         })
     },
-    getValue() {
-      this.value.kitchen = this.kitchen
-      this.value.whole = this.whole
-      return this.value
+  },
+  computed: {
+    getValue: function () {
+      let value = { kitchen: this.kitchen, whole: this.whole }
+      value.kitchen = this.kitchen
+      value.whole = this.whole
+      return value
     },
   },
   created: function () {
@@ -168,11 +151,6 @@ export default {
         this.unko.push(doc.data())
       })
     })
-  },
-  computed: {
-    returnValue: function () {
-      return this.getValue()
-    },
   },
 }
 </script>

@@ -22,6 +22,9 @@
       <div class="col">
         <button class="btn" v-on:click="toSunday">日曜</button>
       </div>
+      <div class="col">
+        <button class="btn" v-on:click="toResult">結果</button>
+      </div>
     </div>
   </div>
   <component v-bind:is="whichDay"></component>
@@ -38,6 +41,8 @@ import thursday from "@/components/thursday.vue"
 import friday from "@/components/friday.vue"
 import saturday from "@/components/saturday.vue"
 import sunday from "@/components/sunday.vue"
+import unko from "../components/siftResult"
+
 
 export default {
   components: {
@@ -48,6 +53,7 @@ export default {
     5: friday,
     6: saturday,
     7: sunday,
+    8: unko,
   },
   data() {
     return {
@@ -85,6 +91,9 @@ export default {
     },
     toSunday() {
       this.whichDay = "7"
+    },
+    toResult() {
+      this.whichDay = "8"
     },
     weeklyToDay() {
       this.scheduleDatas.forEach((onesSchedule) => {

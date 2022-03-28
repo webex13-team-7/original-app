@@ -510,8 +510,10 @@ export default {
           monday12: this.unko12,
           monday13: this.unko13,
         })
-      }else{
-        alert("キッチンスタッフあるいはホールスタッフがいない時間帯があります！！")
+      } else {
+        alert(
+          "キッチンスタッフあるいはホールスタッフがいない時間帯があります！！"
+        )
       }
     },
   },
