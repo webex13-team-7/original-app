@@ -22,6 +22,7 @@
       </div>
     </div>
   </div>
+  <FormNew />
 </template>
 <script>
 import { db } from "../firebase"
@@ -30,11 +31,13 @@ import { collection, getDocs } from "@firebase/firestore"
 
 import Form from "@/components/form.vue"
 import Table from "@/components/tableOX.vue"
+import FormNew from "@/components/formNew.vue"
 
 export default {
   components: {
     Form: Form,
     Table: Table,
+    FormNew: FormNew,
   },
   data() {
     return {
