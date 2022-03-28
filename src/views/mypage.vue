@@ -25,6 +25,7 @@
       </div>
     </div>
   </div>
+  <FormNew />
 </template>
 <script>
 import { db } from "../firebase"

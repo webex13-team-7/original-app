@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import OX from "../components/tableOX"
+import OX from "../components/siftResult"
 // import sidevarVue from "../components/sidevar.vue"
 export default {
   components: {
