@@ -1,43 +1,56 @@
 <template>
-  {{ Options }}
   {{ selection }}
-  {{ currentUserdata }}
-  {{ email }}
-  <div class="container-lg bg-light pt-5">
+  <div class="container-lg bg-light m-5 p-5">
     <div
       id="carouselExampleControls"
       class="carousel slide"
       data-bs-ride="carousel"
     >
       <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="99999">
-          <h1>form1</h1>
-          <div v-for="day in Days.slice(0, 8)" v-bind:key="day">
-            <div>{{ day }}</div>
-            <select v-model="selection[day]" multiple>
-              <option
-                v-for="(option, index) in Options"
-                v-bind:key="index"
-                v-bind:value="index + 1"
-              >
-                {{ option }}
-              </option>
-            </select>
+        <div
+          class="carousel-item active"
+          data-bs-interval="99999"
+          style="height: 5000px"
+        >
+          <div class="container mt-5 p-5">
+            <div class="row m-5"><h2>Week1</h2></div>
+            <div class="row">
+              <div class="co" v-for="day in Days.slice(0, 8)" v-bind:key="day">
+                <div>{{ day }}日</div>
+                <select v-model="selection[day]" multiple class="form-control">
+                  <option
+                    v-for="(option, index) in Options"
+                    v-bind:key="index"
+                    v-bind:value="option"
+                  >
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="carousel-item" data-bs-interval="99999">
-          <h1>form2</h1>
-          <div v-for="day in Days.slice(8)" v-bind:key="day">
-            <div>{{ day }}</div>
-            <select v-model="selection[day]" multiple>
-              <option
-                v-for="(option, index) in Options"
-                v-bind:key="index"
-                v-bind:value="index + 1"
-              >
-                {{ option }}
-              </option>
-            </select>
+        <div
+          class="carousel-item"
+          data-bs-interval="99999"
+          style="height: 5000px; width: 800px"
+        >
+          <div class="container mt-5 p-5">
+            <div class="row m-auto"><h2>Week2</h2></div>
+            <div class="row m-3">
+              <div class="co" v-for="day in Days.slice(8)" v-bind:key="day">
+                <div>{{ day }}日</div>
+                <select v-model="selection[day]" multiple class="form-control">
+                  <option
+                    v-for="(option, index) in Options"
+                    v-bind:key="index"
+                    v-bind:value="option"
+                  >
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -60,8 +73,12 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-md btn-primary" v-on:click="submit">確定</button>
+      </div>
+    </div>
   </div>
-  <button v-on:click="submit">sousin</button>
 </template>
 <script>
 import { db } from "../firebase"
@@ -127,20 +144,48 @@ export default {
     submit() {
       for (let n = 0; n < this.Days.length; n++) {
         let day = this.siftStartday + n
-        setDoc(
-          doc(
-            db,
-            "schedule",
-            `${this.siftStartMonth}月${day}日-${this.currentUserdata[0].name}`
-          ),
-          {
-            employeeName: this.currentUserdata[0].name,
-            employeeStatus: this.currentUserdata[0].status,
-            workingTime: this.selection[day],
-          }
-        )
+        if (this.selection[day]) {
+          setDoc(
+            doc(
+              db,
+              "schedule",
+              `${this.siftStartMonth}月${day}日-${this.currentUserdata[0].name}`
+            ),
+            {
+              employeeName: this.currentUserdata[0].name,
+              employeeStatus: this.currentUserdata[0].status,
+              workingTime: this.selection[day],
+              date: `${this.siftStartMonth}月${day}日`,
+            }
+          )
+        } else {
+          setDoc(
+            doc(
+              db,
+              "schedule",
+              `${this.siftStartMonth}月${day}日-${this.currentUserdata[0].name}`
+            ),
+            {
+              employeeName: this.currentUserdata[0].name,
+              employeeStatus: this.currentUserdata[0].status,
+              workingTime: null,
+              date: `${this.siftStartMonth}月${day}日`,
+            }
+          )
+        }
       }
     },
+    // submit() {
+    //   for (let n = 0; n < this.Days.length; n++) {
+    //     let day = this.siftStartday + n
+    //     addDoc(collection(db, "schedules"), {
+    //       // workingTime: this.selection[day],
+    //       employeeName: this.currentUserdata[0].name,
+    //       status: this.currentUserdata[0].status,
+    //       date: `${this.siftStartMonth}月${day}日`,
+    //     })
+    //   }
+    // },
     // calcu() {
     //   this.employeeName = this.currentUserdata[0].name
     //   this.employeeStatus = this.currentUserdata[0].status
