@@ -1,5 +1,7 @@
 <template>
-  {{ schedules }}
+  {{ whichSift }}
+  {{ submitObjS }}
+  {{ submitObjL }}
   <div class="container shadow">
     <div class="row"><h1>シフト作成画面</h1></div>
     <div class="row-12">{{ siftStartMonth }}月{{ whichDay }}日のシフト</div>
@@ -23,12 +25,18 @@
         <div class="col">
           {{ schedule.employeeName }}
         </div>
-        <div
-          class="col"
-          v-for="(time, index) in schedule.workingTime"
-          v-bind:key="index"
-        >
-          {{ time }}
+        <div class="col" v-for="(time, col) in Options" v-bind:key="col">
+          <div
+            class="col"
+            v-on:click="changeColor(schedule, time, Day)"
+            v-if="schedule.workingTime.includes(time)"
+          >
+            〇
+          </div>
+          <div class="col p-2 m-0 bg-light" v-else-if="workingTime === null">
+            ✕
+          </div>
+          <div class="col p-2 m-0 bg-light" v-else>✕</div>
         </div>
       </div>
     </div>
@@ -37,7 +45,15 @@
 
 <script>
 import { db } from "../firebase"
-import { getDocs, collection, getDoc, setDoc, doc } from "firebase/firestore"
+import {
+  getDocs,
+  collection,
+  getDoc,
+  setDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore"
 import { onAuthStateChanged, getAuth } from "firebase/auth"
 export default {
   data() {
@@ -57,15 +73,36 @@ export default {
       schedules: [],
       whichDay: 0,
       whichSift: [],
-      compiledSift: [],
+      newArr: [],
+      submitObjS: {},
+      submitObjL: {},
     }
   },
   methods: {
+    changeColor(schedule, time) {
+      let key2 = this.whichDay
+      this.submitObjL[key2] = this.submitObjS
+      let key1 = schedule.employeeName
+      this.submitObjS[key1] = time
+    },
     default() {
       this.whichDay = this.siftStartday
     },
     toWhichiDay(Day) {
       this.whichDay = Day
+      this.whichSift.length = 0
+      getDocs(
+        query(
+          collection(db, "schedule"),
+          where("date", "==", `${this.siftStartMonth}月${this.whichDay}日`)
+        )
+      ).then((snapshot) => {
+        snapshot.forEach((doc) => {
+          this.newArr.push(doc.data())
+        })
+      })
+
+      this.whichSift = this.newArr
     },
     Calender() {
       this.Month = new Date().getMonth() + 1
@@ -134,12 +171,6 @@ export default {
         )
       }
     })
-    getDocs(collection(db, "schedule")).then((snapshot) => {
-      snapshot.forEach((doc) => {
-        if
-        this.schedules.push(doc.data())
-      })
-    })
     onAuthStateChanged(getAuth(), (user) => {
       if (user) {
         this.emai = user.email
@@ -150,6 +181,16 @@ export default {
         if (doc.get("uid") === this.email) {
           this.currentUserdata.push(doc.data())
         }
+      })
+    })
+    getDocs(
+      query(
+        collection(db, "schedule"),
+        where("date", "==", `${this.siftStartMonth}月${this.whichDay}日`)
+      )
+    ).then((snapshot) => {
+      snapshot.forEach((doc) => {
+        this.whichSift.push(doc.data())
       })
     })
   },

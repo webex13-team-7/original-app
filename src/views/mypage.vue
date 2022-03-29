@@ -10,12 +10,12 @@
         <div class="col">
           <button class="btn" v-on:click="toForm">シフト登録</button>
         </div>
-        <div class="col">
+        <!-- <div class="col">
           <button class="btn" v-on:click="toTable">シフト編集</button>
-        </div>
-        <div class="col">
+        </div> -->
+        <!-- <div class="col">
           <button class="btn" v-on:click="toResult">今週のシフト</button>
-        </div>
+        </div> -->
         <div class="col">
           <button class="btn" v-on:click="Exam">シフト</button>
         </div>
@@ -33,14 +33,14 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { collection, getDocs } from "@firebase/firestore"
 
 import Form from "@/components/form.vue"
-import Table from "@/components/tableOX.vue"
+// import Table from "@/components/tableOX.vue"
 import Result from "@/components/siftResult.vue"
 import Exam from "@/components/formNew.vue"
 
 export default {
   components: {
     Form: Form,
-    Table: Table,
+    // Table: Table,
     Result: Result,
     Exam: Exam,
   },
